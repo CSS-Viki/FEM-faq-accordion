@@ -1,0 +1,117 @@
+@font-face {
+  font-family: "WorkSans";
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("./assets/fonts/WorkSans-VariableFont_wght.ttf") format("truetype");
+}
+:root {
+  --White: hsl(0, 0%, 100%);
+  --Light-pink: hsl(275, 100%, 97%);
+  --Grayish-purple: hsl(292, 16%, 49%);
+  --Dark-purple: hsl(292, 42%, 14%);
+  --black: hsl(0, 0%, 0%);
+  --font-family-default: "WorkSans", sans-serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+p {
+  color: var(--Dark-purple);
+}
+body {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-family-default);
+  background-color: var(--Light-pink);
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 60%;
+  z-index: -1;
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: 30% 100%;
+}
+
+.accordion {
+  max-width: 500px;
+  width: 100%;
+  background-color: var(--White);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 5px 19px 66px 0px rgba(0, 0, 0, 0.51);
+}
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.faq-header img {
+  width: 24px;
+}
+.faq-header .faq-tag {
+  font-weight: 700;
+  color: var(--Dark-purple);
+}
+.faq-container {
+  border-bottom: 1px solid #ccc;
+}
+.faq-question-container .question {
+  padding: 18px 0px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+.faq-question-container .question:hover {
+  color: purple;
+}
+.faq-question-container {
+  display: flex;
+  justify-content: space-between;
+}
+.faq-container .answer {
+  width: 100%;
+  color: var(--Grayish-purple);
+  height: 0;
+  overflow: hidden;
+  transition: 0.5s ease-in-out;
+}
+.faq-question-container > img {
+  cursor: pointer;
+}
+
+.faq-container.active .answer {
+  height: auto;
+  padding-bottom: 18px;
+}
+
+@media (max-width: 41.25em) {
+  body {
+    padding: 20px;
+  }
+  .accordion {
+    padding: 15px;
+    max-width: 300px;
+  }
+}
